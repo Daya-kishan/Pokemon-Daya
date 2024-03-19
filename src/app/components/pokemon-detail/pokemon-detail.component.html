@@ -27,24 +27,18 @@
             <div class="spinner">
                 <mat-spinner *ngIf="loading"></mat-spinner>
             </div>
-            <mat-grid-list [cols]="evolutionDetails.length" gutterSize="10px"
-                *ngIf="evolutionDetails && evolutionDetails.length && !loading">
-                <mat-grid-tile *ngFor="let pokemon of evolutionDetails">
+            <mat-grid-list [cols]="evolutionChain.length" gutterSize="10px" *ngIf="!loading">
+                <mat-grid-tile *ngFor="let pokemon of evolutionChain, let i= index; trackBy:trackByFn">
                     <mat-card class="example-card" style="text-align: center; cursor: pointer">
-                        <img mat-card-image [src]="pokemonDetail.sprites.front_default" [alt]="pokemon.species_name"
-                            style="width: 150px; height: 100px" />
+                        <img mat-card-image [src]="pokemon?.sprites?.other?.dream_world?.front_default"
+                            [alt]="pokemon.species_name" style="width: 150px; height: 100px" />
                         <mat-card-content>
                             <p style="margin-top: 15px">
-                                {{ pokemon.species_name | uppercase }}
-                            </p>
-                            <p style="margin-top: 15px">
-                                <span>Min level: </span>{{ pokemon.min_level }}
-                            </p>
-                            <p style="margin-top: 15px">
-                                <span>Trigger name: </span>{{ pokemon.trigger_name }}
+                                <span>Trigger name: </span>{{ pokemon.name | uppercase}}
                             </p>
                         </mat-card-content>
                     </mat-card>
+                    <b></b><span style='font-size:100px;' *ngIf="i < evolutionChain.length-1"> &#8594;</span>
                 </mat-grid-tile>
             </mat-grid-list>
         </mat-tab>

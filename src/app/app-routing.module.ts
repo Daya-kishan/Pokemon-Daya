@@ -5,6 +5,7 @@ import { PokemonDetailComponent } from './components/pokemon-detail/pokemon-deta
 
 const routes: Routes = [
   { path: '', component: PokemonGridComponent },
+  { path: 'list', component: PokemonGridComponent },
   { path: 'pokemon-detail/:id', component: PokemonDetailComponent },
 ];
 

@@ -15,12 +15,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { PokemonDetailComponent } from './components/pokemon-detail/pokemon-detail.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { PokemonCardComponent } from './components/pokemon-card/pokemon-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PokemonGridComponent,
-    PokemonDetailComponent
+    PokemonDetailComponent,
+    PokemonCardComponent
   ],
   imports: [
     BrowserModule,

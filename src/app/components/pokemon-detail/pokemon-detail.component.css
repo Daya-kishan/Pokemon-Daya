@@ -1,0 +1,54 @@
+::ng-deep .mat-tab-list .mat-tab-labels .mat-tab-label-active {
+    color: black;
+    background-color: rgb(117, 153, 220);
+}
+
+::ng-deep .mat-tab-list .mat-tab-labels {
+    color: rgb(14, 14, 14);
+    background-color: rgba(160, 208, 229, 0.644);
+}
+
+.example-card {
+    max-width: 300px;
+    margin: 7px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    width: 40%;
+    background-color: rgb(179, 198, 232);
+}
+
+.example-card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.subtitle {
+    margin-left: 15px;
+    font-family: fangsong;
+    font-style: italic;
+}
+
+p {
+    font-family: Lato;
+}
+
+header {
+    background: none !important;
+}
+
+.timecard-container .timecard .header {
+    border-radius: 3px;
+    text-align: center;
+    width: 100%;
+    background: #fff !important;
+    padding: 0px !important;
+    font-weight: 500;
+}
+
+.horizontal-link-with-icon {
+    background-color: #bfbebe;
+    width: auto !important;
+}
+
+.mat-expansion-panel-body {
+    padding: 0 0px 0px !important;
+}

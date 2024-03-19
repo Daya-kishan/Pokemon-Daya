@@ -1,0 +1,18 @@
+<div class="spinner">
+    <mat-spinner *ngIf="pokemonService.loading"></mat-spinner>
+</div>
+<div class="body" *ngIf="!pokemonService.loading">
+    <mat-grid-list cols="3" rowHeight="100px">
+        <ng-container *ngFor="let pokemon of pokemonService.pokemonDetails">
+            <mat-grid-tile [colspan]="1" [rowspan]="1" (click)="showPokemonDetails(pokemon.id)"
+                style="text-align: center; cursor: pointer">
+                <img src={{pokemon.sprites.front_default}}>
+                <div><span><b>Name:</b> {{pokemon.name.toUpperCase()}}</span></div>
+            </mat-grid-tile>
+        </ng-container>
+    </mat-grid-list>
+</div>
+
+<mat-paginator #paginator class="demo-paginator" (page)="handlePageEvent($event)" [length]="pokemonService.totalCount"
+    [pageSize]="12" aria-label="Select page">
+</mat-paginator>

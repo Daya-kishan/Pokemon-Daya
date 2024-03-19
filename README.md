@@ -4,6 +4,7 @@ If you click on a Pokemon card, you will be redirected to a separate page where 
 
 API:
 1- to fetch list of Pokemons https://pokeapi.co/api/v2/pokemon?limit=10&offset=0
+2- etail of individual Pokemon https://pokeapi.co/api/v2/pokemon/1/
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.2.
 

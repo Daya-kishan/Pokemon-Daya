@@ -2,6 +2,14 @@
  This application is build to display Pokemon list as well as details for each pokenom using the pokemon REST api.
 If you click on a Pokemon card, you will be redirected to a separate page where you will see tabs to view Details/Evolution chain of the selected pokemon.
 
+1- https://pokeapi.co/api/v2/pokemon?limit=10&offset=0
+
+2- https://pokeapi.co/api/v2/pokemon/1/
+
+3- https://pokeapi.co/api/v2/pokemon-species/10
+
+4-https://pokeapi.co/api/v2/evolution-chain/90/
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.2.
 
 ## Development server

@@ -4,12 +4,11 @@
 <div class="body" *ngIf="!loading">
     <mat-grid-list cols="3" rowHeight="150px">
         <mat-grid-tile [colspan]="1" [rowspan]="1" style="text-align: center; cursor: pointer"
-            *ngFor="let pokemon of pokemons; trackBy:trackByFn">
+            *ngFor="let pokemon of pokemonService.pokemons; trackBy:trackByFn">
             <app-pokemon-card [pokemonData]="pokemon"></app-pokemon-card>
         </mat-grid-tile>
     </mat-grid-list>
 </div>
-
-<mat-paginator #paginator class="demo-paginator" (page)="handlePageEvent($event)" [length]="totalCount" [pageSize]="12"
-    aria-label="Select page">
+<mat-paginator #paginator class="demo-paginator" (page)="handlePageEvent($event)" [length]="pokemonService.totalCount"
+    [pageSize]="12" [pageIndex]="pokemonService.pageIndex" aria-label="Select page">
 </mat-paginator>

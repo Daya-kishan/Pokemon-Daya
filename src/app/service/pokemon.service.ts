@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { allPokemonsUrl, pokemonDetail, pokemonSpecies } from '../modal/url.config';
+import { allPokemonsUrl, pokemonDetailUrl, pokemonSpeciesUrl } from '../modal/url.config';
 import { concatMap, from, switchMap } from 'rxjs';
 
 @Injectable({
@@ -10,6 +10,8 @@ export class PokemonService {
   pokemons = <any>[];
   pokemonDetails = <any>[];
   loading!: boolean;
+  totalCount!: number;
+  pageIndex: number = 0;
 
   constructor(private http: HttpClient) { }
 
@@ -26,7 +28,7 @@ export class PokemonService {
   /** get details for each pokemon specie **/
   getPokemonSpecies(id: number) {
     return this.http
-      .get(pokemonSpecies(id))
+      .get(pokemonSpeciesUrl(id))
       .pipe(
         switchMap((response: any) =>
           this.http.get(response.evolution_chain.url)
@@ -54,7 +56,7 @@ export class PokemonService {
   fetchEvolutionStageDetails(stages: any[]) {
     return from(stages).pipe(
       concatMap((stage) => {
-        return this.http.get(pokemonDetail(stage.species_name));
+        return this.http.get(pokemonDetailUrl(stage.species_name));
       })
     );
   }

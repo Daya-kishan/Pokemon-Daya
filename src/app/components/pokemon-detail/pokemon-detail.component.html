@@ -1,28 +1,44 @@
 <ng-container *ngIf=" pokemonDetail">
     <mat-tab-group (selectedTabChange)="loadEvolutionChain($event)" dynamicHeight>
+        <!-- Detail tab-->
         <mat-tab label="Details">
             <mat-card appearance="raised" class="example-card" style="text-align: center;">
                 <img mat-card-image src={{pokemonDetail.sprites.front_default}}>
                 <mat-card-content>
-                    <p style="margin-top: 15px; font-weight: bold">
+                    <h1 style="margin-top: 15px; font-weight: bold">
                         {{ pokemonDetail.name | uppercase }}
-                    </p>
+                    </h1>
                     <p>Height: {{ pokemonDetail.height }}</p>
                     <p>Weight: {{ pokemonDetail.weight }}</p>
                 </mat-card-content>
                 <mat-card-content>
-                    <span><b>Type 1:</b> {{pokemonDetail.types[0].type.name}}</span><br>
-                    <span *ngIf="pokemonDetail.types.length == 2">
-                        <b>Type 2:</b> {{pokemonDetail.types[1].type.name}}
-                    </span>
+                    <h2 style="margin-top: 15px; font-weight: bold">Stats</h2>
+                    <table>
+                        <tr>
+                            <th>Type 1</th>
+                            <th *ngIf="pokemonDetail.types.length == 2">Type 2</th>
+                        </tr>
+                        <tr>
+                            <td>{{pokemonDetail.types[0].type.name}}</td>
+                            <td *ngIf="pokemonDetail.types[1]">{{pokemonDetail.types[1].type.name}}</td>
+                        </tr>
+                    </table>
                     <br>
-                    <span><b>Base stats:</b></span>
-                    <div class="statsPokemon" *ngFor="let baseStat of pokemonDetail.stats">
-                        <span>{{baseStat.stat.name.toUpperCase()}} = {{baseStat.base_stat}}</span>
-                    </div>
+                    <h2><b>Base stats:</b></h2>
+                    <table>
+                        <ng-container *ngFor="let baseStat of pokemonDetail.stats">
+                            <tr>
+                                <th>{{baseStat.stat.name.toUpperCase()}}</th>
+                            </tr>
+                            <tr>
+                                <td>{{baseStat.base_stat}}</td>
+                            </tr>
+                        </ng-container>
+                    </table>
                 </mat-card-content>
             </mat-card>
         </mat-tab>
+        <!-- Evolution tab-->
         <mat-tab label="Evolution">
             <div class="spinner">
                 <mat-spinner *ngIf="loading"></mat-spinner>

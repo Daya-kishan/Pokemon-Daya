@@ -11,26 +11,26 @@ import { PokemonService } from 'src/app/service/pokemon.service';
   styleUrls: ['./pokemon-grid.component.css']
 })
 export class PokemonGridComponent implements OnInit {
-  pokemons: any[] = [];
-  totalCount!: number;
-  loading = true;
+  loading !: boolean;
   constructor(readonly pokemonService: PokemonService,) { }
 
   ngOnInit(): void {
-    this.fetchAllPokemons();
+    if (!this.pokemonService.pokemons.length) {
+      console.log(this.pokemonService.pokemons.length);
+      this.fetchAllPokemons();
+    }
   }
   private fetchAllPokemons(offset: number = 0) {
-    if (!this.pokemonService.pokemonDetails.length) {
-      this.loading = true;
-      this.pokemonService.getAllPokemons(offset).subscribe((data: any) => {
-        this.totalCount = data.count;
-        this.pokemons = data.results;
-        this.loading = false;
-      });
-    }
+    this.loading = true;
+    this.pokemonService.getAllPokemons(offset).subscribe((data: any) => {
+      this.pokemonService.totalCount = data.count;
+      this.pokemonService.pokemons = data.results;
+      this.loading = false;
+    });
   }
 
   handlePageEvent(event: PageEvent) {
+    this.pokemonService.pageIndex = event.pageIndex;
     this.fetchAllPokemons(event.pageIndex * 12);
   }
 

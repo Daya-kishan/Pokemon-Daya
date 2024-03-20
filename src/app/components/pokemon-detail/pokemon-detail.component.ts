@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { pokemonDetail } from 'src/app/modal/url.config';
+import { pokemonDetailUrl } from 'src/app/modal/url.config';
 import { PokemonService } from 'src/app/service/pokemon.service';
 
 @Component({
@@ -16,13 +16,14 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   evolutionDetails: any[] = [];
   evolutionChain: any[] = [];
   pokemonDetail: any;
+  displayedColumns: string[] = ['base_stat', 'effort', 'name'];
 
   constructor(private route: ActivatedRoute, readonly pokemonService: PokemonService) { }
 
   ngOnInit(): void {
     this.sub = this.route.params.subscribe(param => {
       this.id = param['id'];
-      const url = pokemonDetail(this.id);
+      const url = pokemonDetailUrl(this.id);
       this.pokemonService.fetchPokemonDetails(url).subscribe((data: any) => {
         this.pokemonDetail = data;
       });

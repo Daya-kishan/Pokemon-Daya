@@ -31,24 +31,37 @@ p {
     font-family: Lato;
 }
 
-header {
-    background: none !important;
-}
-
 .timecard-container .timecard .header {
     border-radius: 3px;
     text-align: center;
     width: 100%;
-    background: #fff !important;
-    padding: 0px !important;
+    background: #fff;
+    padding: 0px;
     font-weight: 500;
 }
 
 .horizontal-link-with-icon {
     background-color: #bfbebe;
-    width: auto !important;
+    width: auto;
 }
 
 .mat-expansion-panel-body {
-    padding: 0 0px 0px !important;
+    padding: 0 0px 0px;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td,
+th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
 }

@@ -16,6 +16,7 @@ import { PokemonDetailComponent } from './components/pokemon-detail/pokemon-deta
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { PokemonCardComponent } from './components/pokemon-card/pokemon-card.component';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { PokemonCardComponent } from './components/pokemon-card/pokemon-card.com
     MatCardModule,
     MatIconModule,
     MatProgressSpinnerModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatTableModule
 
   ],
   providers: [],
